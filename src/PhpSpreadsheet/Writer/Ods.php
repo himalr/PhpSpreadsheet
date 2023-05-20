@@ -158,11 +158,11 @@ class Ods extends BaseWriter
         }
 
         // Create new ZIP stream
-        $options = new Archive();
-        $options->setEnableZip64(false);
-        $options->setOutputStream($this->fileHandle);
+        // $options = new Archive();
+        // $options->setEnableZip64(false);
+        // $options->setOutputStream($this->fileHandle);
 
-        return new ZipStream(null, $options);
+        return new ZipStream(outputStream: $this->fileHandle,  enableZip64: false, sendHttpHeaders: false);
     }
 
     /**
